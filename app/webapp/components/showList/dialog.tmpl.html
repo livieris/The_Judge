@@ -1,0 +1,21 @@
+<md-dialog aria-label="SHOW OPTIONS">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>SHOW OPTIONS</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="answer('edit')">
+       EDIT
+      </md-button>
+      <md-button ng-click="answer('results')">
+        RESULTS
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

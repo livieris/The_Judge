@@ -1,0 +1,12 @@
+<form name="criteriaSetupForm" style="height:75vh;">
+    <div layout="column" layout-align="space-around center">
+        <md-input-container ng-repeat="crit in $ctrl.criteriaList track by $index" ng-style="{'background-color':'white'}">
+            <label>Criteria {{$index +1}}</label>
+            <input ng-model="crit.criteria" required>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" ng-click="$ctrl.addEmptyCriteria()">Add</md-button>
+      <md-button class="md-raised md-primary" ng-disabled="!$ctrl.canSaveNewShow() && criteriaSetupForm.$invalid" ng-click="$ctrl.createNewShow()">Submit</md-button>
+    </div>
+</form>

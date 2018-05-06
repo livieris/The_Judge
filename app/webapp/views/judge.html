@@ -1,0 +1,33 @@
+<div ng-cloak hide-xs>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-center-tabs md-selected="$ctrl.selectedIndex">
+      <md-tab label="Owner Info">
+        <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+            <judge-car-info-form car-info="$ctrl.carInfo" change-tab="$ctrl.changeTab(tabIndex)"></judge-car-info-form>
+        </md-content>
+      </md-tab>
+      <md-tab label="Judge Criteria">
+        <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+          <judge-car-score-form car-info=$ctrl.carInfo total-score="$ctrl.totalScore()" car-show="$ctrl.carShow" car-score="$ctrl.carScore" save="$ctrl.save()" can-save="$ctrl.canSave()"></judge-car-score-form>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content> 
+</div>
+
+<div ng-cloak hide-gt-xs>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-center-tabs md-selected="$ctrl.selectedIndex">
+      <md-tab label="Owner Info">
+        <md-content class="md-padding">
+            <judge-car-info-form car-info="$ctrl.carInfo" change-tab="$ctrl.changeTab(tabIndex)"></judge-car-info-form>
+        </md-content>
+      </md-tab>
+      <md-tab label="Judge Criteria">
+        <md-content class="md-padding">
+          <judge-car-score-form car-info=$ctrl.carInfo total-score="$ctrl.totalScore()" car-show="$ctrl.carShow" car-score="$ctrl.carScore" save="$ctrl.save()" can-save="$ctrl.canSave()"></judge-car-score-form>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>

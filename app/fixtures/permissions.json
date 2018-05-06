@@ -1,0 +1,14 @@
+[
+    {
+        "model": "permission",
+        "data": {
+            "name": "ADMIN_PERMISSION"
+        }
+    },
+    {
+        "model": "permission",
+        "data": {
+            "name": "USER_PERMISSION"
+        }
+    }
+]

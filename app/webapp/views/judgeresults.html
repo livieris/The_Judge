@@ -1,0 +1,17 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button aria-label="Go Back" ng-click="$ctrl.goPresident()">
+      Back
+    </md-button>
+    <h2 flex md-truncate>Judge Results</h2>
+    <md-button aria-label="Print List" ng-click="$ctrl.goPrint()">
+      PRINT
+    </md-button>
+  </div>
+</md-toolbar>
+<md-content hide-xs class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'50% 35%', 'background-size':'cover', 'background-attachment':'fixed'}">
+  <show-stats-form custom-print="$ctrl.customPrint" go-print="$ctrl.goPrint('false')"></show-stats-form>
+</md-content>
+<md-content hide-gt-xs class="md-padding">
+  <show-stats-form custom-print="$ctrl.customPrint" go-print="$ctrl.goPrint('true')">.</show-stats-form>
+</md-content>

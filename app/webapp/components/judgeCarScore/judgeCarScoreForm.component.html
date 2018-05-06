@@ -1,0 +1,15 @@
+<form name="judgeCarScoreForm" style="height:87vh;">
+    <div layout="column" layout-align="space-around center">
+      <md-input-container ng-repeat="crit in $ctrl.carShow.car_criteria track by $index" ng-style="{'background-color':'white'}">
+          <label>{{crit.criteria}}</label>
+          <input type="number" ng-model=crit.value ng-change="$ctrl.totalScore()" required>
+      </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Total Score</label>
+            <input name="Total Score" ng-model="$ctrl.carInfo.car_score" ng-readonly=true>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" ng-disabled="$ctrl.canSave()" ng-click="$ctrl.save()">Submit</md-button>
+    </div>
+</form>

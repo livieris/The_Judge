@@ -1,0 +1,23 @@
+<form name="showInfoForm" style="height:75vh;">
+    <div layout="column" layout-align="space-around center">
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Show Name</label>
+            <input name="Show Name" ng-model="$ctrl.carShow.show_name" required>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>City</label>
+            <input name="City" ng-model="$ctrl.carShow.city" required>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>State</label>
+            <input name="State" ng-model="$ctrl.carShow.state" required>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Total Number of Classes</label>
+            <input name="Number of Classes" type="number" ng-model="$ctrl.carShow.num_of_classes" required>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center" >
+      <md-button ng-disabled="showInfoForm.$invalid" class="md-raised md-primary" ng-click="$ctrl.changeTab({tabIndex: 1})">Next</md-button>
+    </div>
+</form>

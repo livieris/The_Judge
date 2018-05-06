@@ -1,0 +1,17 @@
+[
+    {
+        "model": "role",
+        "data": {
+            "name": "ADMIN",
+            "permissions": [1,2]
+        }
+    },
+    {
+        "model": "role",
+        "data": {
+            "name": "USER",
+            "permissions": [2]
+        }
+    }
+
+]

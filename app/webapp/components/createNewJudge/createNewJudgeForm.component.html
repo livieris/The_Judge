@@ -1,0 +1,50 @@
+<form name="createNewJudgeForm">
+    <div layout="column" layout-align="space-around center">
+      <p>Creating a new judge will replace your existing judge account</P>
+        <md-input-container>
+            <label>User Name</label>
+              <input name="userName"
+                ng-model="$ctrl.judge.judge_user"
+                ng-change="$ctrl.checkUsername()"
+                ng-model-options="{ debounce: 500 }"
+                required>
+                <div ng-messages="createNewJudgeForm.userName.$error">
+                  <div ng-message="usernameInvalid">User Name already taken. Please try a different one.</div>
+              </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input
+            name="password"
+            type="password"
+            ng-model="$ctrl.judge_pass"
+            required
+            md-no-asterisk
+            minlength="8"
+            maxlength="30"
+            ng-pattern="$ctrl.passwordRegex">
+            <div ng-messages="createNewJudgeForm.password.$error">
+              <div ng-message="required">Please enter a password</div>
+              <div ng-message="minlength">Please enter 8 or more characters</div>
+              <div ng-message="pattern">Password does not meet requirements</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-show="$ctrl.showConfirmPassword()">
+            <label>Confirm Password</label>
+            <input
+            name="confirmPassword"
+            type="password"
+            ng-model="$ctrl.confirmPassword"
+            ng-change="$ctrl.passwordsMatch()"
+            required
+            md-no-asterisk>
+            <div ng-messages="createNewJudgeForm.confirmPassword.$error">
+              <div ng-message="required">Please confirm your password</div>
+              <div ng-message="mustmatch">Passwords must match</div>
+            </div>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button ng-disabled="createNewJudgeForm.$invalid" class="md-raised md-primary" ng-click="$ctrl.submitNewJudge()">Submit</md-button>
+    </div>
+</form>

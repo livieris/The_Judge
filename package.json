@@ -1,0 +1,48 @@
+{
+  "name": "base_server",
+  "version": "1.0.0",
+  "description": "A M*EAN WebApp with PassportJS",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -o app/styles/css app/styles/sass/",
+    "sass-watch": "node-sass -o public/css public/sass/ -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://livieris@bitbucket.org/livieris/the_judge.git"
+  },
+  "author": "Shane Livieri",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/livieris/the_judge/src/master/README.md",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.7",
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-material": "^1.1.7",
+    "angular-messages": "^1.6.9",
+    "angular-permission": "^6.0.0",
+    "angular-resource": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.2",
+    "ng-lodash": "^0.2.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "save": "^2.3.2",
+    "sequelize": "^4.37.6",
+    "sequelize-fixtures": "^0.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.15.1",
+    "sass": "^1.2.1"
+  }
+}

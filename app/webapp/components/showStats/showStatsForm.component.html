@@ -1,0 +1,53 @@
+<div id="top" ng-cloak layout-gt-sm="row" layout="column" layout-align="space-around center">
+  <div flex-gt-sm="50" flex layout-align="space-around center" style="height:82vh;">
+    <md-toolbar layout-align="space-around center" layout="column" class="md-hue-3">
+      <div class="md-toolbar-tools" layout-align="space-around center">
+        <md-button class="md-raised md-primary" ng-click="$ctrl.toggleResult()">Results</md-button>
+        <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCustom()" ng-show="$ctrl.showResult()">Custom</md-button>
+        <md-input-container ng-show="$ctrl.showCustom()">
+            <label flex>Class</label>
+            <input name="Class" ng-model="$ctrl.classFilter" required>
+        </md-input-container>
+        <md-input-container ng-show="$ctrl.showCustom()">
+            <label flex>Winners</label>
+            <input name="Winners" ng-model="$ctrl.lengthFilter" required>
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="$ctrl.customFilter()" ng-show="$ctrl.showCustom()">GO</md-button>
+      </div>
+    </md-toolbar>
+    <!--show only when all results is clicked-->
+    <md-content id="mytext">
+      <md-list flex ng-show="$ctrl.showResult()">
+        <md-subheader class="md-no-sticky">Top 5 winners in each class.</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="showClass in $ctrl.classes" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <h3>Class {{ showClass }}: Owners in class: {{ $ctrl.resultsSorted[showClass].length }}</h3>
+            <h4>{{ $ctrl.printResultInfo(showClass, 0) }}</h4>
+            <h4>{{ $ctrl.printResultInfo(showClass, 1) }}</h4>
+            <h4>{{ $ctrl.printResultInfo(showClass, 2) }}</h4>
+            <h4>{{ $ctrl.printResultInfo(showClass, 3) }}</h4>
+            <h4>{{ $ctrl.printResultInfo(showClass, 4) }}</h4>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+    <!--show only when custom button is clicked-->
+    <md-content id="mytextcustom">
+      <md-list flex ng-show="$ctrl.showCustom()">
+        <md-subheader class="md-no-sticky">Select how many winners you want from a class.</md-subheader>
+        <md-list-item class="md-3-line" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ $ctrl.classFilter }}:  {{ $ctrl.customResults.length }}</h3>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-3-line" ng-repeat="item in $ctrl.customResults" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <h4>{{ $ctrl.printCustomResult(item) }}</h4>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.goPresident()">BACK</md-button>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.goTop()">TOP</md-button>
+  </div>
+</div>

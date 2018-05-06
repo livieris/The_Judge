@@ -1,0 +1,26 @@
+<form name="loginForm" ng-submit="$ctrl.login()" style="height:85vh;">
+    <div layout="column" layout-align="space-around center">
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Username</label>
+            <input type="text" name="username" ng-model="$ctrl.user.username">
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Password</label>
+            <input type="password" name="password" ng-model="$ctrl.user.password">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" type="submit">Login</md-button>
+    </div>
+</form>
+<div layout="row" layout-align="center" layout-padding layout-margin ng-show="$ctrl.error">
+    <span flex></span>
+    <div flex="55" class="auth-alert md-whiteframe-4dp" layout="row">
+        <span flex></span>
+        <div><i class="material-icons" style="vertical-align: middle">error</i></div>
+        <span style="width: 5px"></span>
+        <div> {{ $ctrl.error }}</div>
+        <span flex></span>
+    </div>
+    <span flex></span>
+</div>

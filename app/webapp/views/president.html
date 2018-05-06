@@ -1,0 +1,78 @@
+<div ng-cloak hide-xs>
+  <md-content >
+    <md-tabs md-dynamic-height md-border-bottom md-center-tabs md-selected="$ctrl.selectedIndexMain">
+      <md-tab label="Create Show" name="Create Show Tab">
+        <md-content class="md-padding">
+          <!--begin nested tab-->
+          <md-tabs md-dynamic-height md-border-bottom md-center-tabs md-selected="$ctrl.selectedIndex">
+            <md-tab label="Show Info" name="Show Information Tab">
+              <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+                <show-info-form car-show="$ctrl.carShow" change-tab="$ctrl.changeTab(tabIndex)" ></show-info-form>
+              </md-content>
+            </md-tab>
+            <md-tab label="Create Judge" name="Judge Account Tab">
+              <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+                <judge-account-form car-show="$ctrl.carShow" judge-pass="$ctrl.judge_pass" change-tab="$ctrl.changeTab(tabIndex)" ></judge-account-form>
+              </md-content>
+            </md-tab>
+            <md-tab label="Judge Criteria" name="Judge Criteria Tab">
+              <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+                <criteria-setup-form criteria-list="$ctrl.criteriaList" can-save-new-show="!$ctrl.canSaveNewShow()" create-new-show="$ctrl.createNewShow()" criteria-list="$ctrl.criteriaList" ></criteria-setup-form>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+          <!--end nested tab-->
+        </md-content>
+      </md-tab>
+      <md-tab label="Manage Shows">
+        <md-content class="md-padding">
+          <!--begin nested tab-->
+              <md-content class="md-padding" ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'center center', 'background-size':'cover', 'background-attachment':'fixed'}">
+                <show-list-form user="ctrl.user" car-show="$ctrl.carShow" send-to-edit-shows=$ctrl.sendToEditShows(item)></show-list-form>
+              </md-content>
+          <!--end nested tab-->
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+<!--for mobile and small screens, copy above and use hide-gt-sx-->
+<div ng-cloak hide-gt-xs>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.selectedIndexMain">
+      <md-tab label="Create Show" name="Create Show Tab">
+        <md-content class="md-padding">
+          <!--begin nested tab-->
+          <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.selectedIndex">
+            <md-tab label="Show Info" name="Show Information Tab">
+              <md-content class="md-padding">
+                <show-info-form car-show="$ctrl.carShow" change-tab="$ctrl.changeTab(tabIndex)" ></show-info-form>
+              </md-content>
+            </md-tab>
+            <md-tab label="Create Judge" name="Judge Account Tab">
+              <md-content class="md-padding">
+                <judge-account-form car-show="$ctrl.carShow" judge-pass="$ctrl.judge_pass" change-tab="$ctrl.changeTab(tabIndex)" ></judge-account-form>
+              </md-content>
+            </md-tab>
+            <md-tab label="Judge Criteria" name="Judge Criteria Tab">
+              <md-content class="md-padding">
+                <criteria-setup-form criteria-list="$ctrl.criteriaList" can-save-new-show="!$ctrl.canSaveNewShow()" create-new-show="$ctrl.createNewShow()" criteria-list="$ctrl.criteriaList" ></criteria-setup-form>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+          <!--end nested tab-->
+        </md-content>
+      </md-tab>
+      <md-tab label="Manage Shows">
+        <md-content class="md-padding">
+          <!--begin nested tab-->
+              <md-content class="md-padding">
+                <show-list-form user="ctrl.user" car-show="$ctrl.carShow" send-to-edit-shows=$ctrl.sendToEditShows(item)></show-list-form>
+              </md-content>
+          <!--end nested tab-->
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>

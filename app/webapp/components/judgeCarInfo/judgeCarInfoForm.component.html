@@ -1,0 +1,83 @@
+<!-- ngmodel binds a value to the name. For this case, judge is the main name, values get bound
+to the names applied to judge. so fullname, class, ect are bound-->
+<form name="judgeCarInfoForm" style="height:87vh;">
+    <div layout="column" layout-align="space-around center">
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>First and Last name</label>
+            <input name="name" ng-model="$ctrl.carInfo.full_name" required>
+            <div ng-messages="judgeCarInfoForm.name.$error">
+              <div ng-message="required">Full name is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>City</label>
+            <input name="name" ng-model="$ctrl.carInfo.city" required>
+            <div ng-messages="judgeCarInfoForm.city.$error">
+              <div ng-message="required">City is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>State</label>
+            <input name="name" ng-model="$ctrl.carInfo.state" required>
+            <div ng-messages="judgeCarInfoForm.state.$error">
+              <div ng-message="required">State is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Class</label>
+            <input name="carClass" ng-model="$ctrl.carInfo.class" required>
+            <div ng-messages="judgeCarInfoForm.carClass.$error">
+            <div ng-message="required">A car class is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Car Number</label>
+            <input name="carNumber" type="number" ng-model="$ctrl.carInfo.car_number" required>
+            <div ng-messages="judgeCarInfoForm.carNumber.$error">
+              <div ng-message="required">A car number for the vehicle is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Year</label>
+            <input name="carYear" type="number" ng-model="$ctrl.carInfo.year" required>
+            <div ng-messages="judgeCarInfoForm.year.$error">
+              <div ng-message="required">A year for the vehicle is required</div>
+            </div>
+        </md-input-container>
+        <!-- md-autocomplete try-->
+        <md-input-container flex ng-style="{'background-color':'white'}">
+          <!--  <label>Car Make</label>
+           <input name="carMake" ng-model="$ctrl.carInfo.carMake" required> -->
+                  <md-autocomplete
+                      name="carMake"
+                      ng-disabled="$ctrl.isDisabled"
+                      md-no-cache="$ctrl.noCache"
+                      md-selected-item="$ctrl.selectedItem"
+                      md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
+                      md-search-text="$ctrl.searchText"
+                      md-selected-item-change="$ctrl.selectedItemChange(item)"
+                      md-items="item in $ctrl.querySearch($ctrl.searchText)"
+                      md-item-text="item.display"
+                      md-min-length="0"
+                      placeholder="Car Make"
+                      required>
+                    <md-item-template>
+                      <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
+            <div ng-messages="judgeCarInfoForm.make.$error">
+              <div ng-message="required">A car make is required</div>
+            </div>
+          <!-- end of md-autocomplete try-->
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Car Model</label>
+            <input name="carModel" ng-model="$ctrl.carInfo.model" required>
+            <div ng-messages="judgeCarInfoForm.model.$error">
+              <div ng-message="required">A car model is required</div>
+            </div>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+        <md-button ng-disabled="judgeCarInfoForm.$invalid" class="md-raised md-primary" ng-click="$ctrl.changeTab({tabIndex: 1})">Next</md-button>
+    </div>
+</form>

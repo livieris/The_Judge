@@ -1,0 +1,72 @@
+<form name="registerForm" ng-submit="$ctrl.register()" style="height:85vh;">
+    <div layout="column" layout-align="space-around center">
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>First name</label>
+            <input name="firstname" ng-model="$ctrl.user.firstname" required>
+            <div ng-messages="registerForm.firstname.$error">
+              <div ng-message="required">A first name is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Last name</label>
+            <input name="lastname" ng-model="$ctrl.user.lastname" required>
+            <div ng-messages="registerForm.lastname.$error">
+              <div ng-message="required">A last name is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Username</label>
+            <input
+            name="username"
+            type="text"
+            ng-model="$ctrl.user.username"
+            required>
+            <div ng-messages="registerForm.username.$error">
+              <div ng-message="required">An username is required</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
+            <label>Password</label>
+            <input
+            name="password"
+            type="password"
+            ng-model="$ctrl.user.password"
+            required
+            md-no-asterisk
+            minlength="8"
+            maxlength="30"
+            ng-pattern="$ctrl.passwordRegex">
+            <div ng-messages="registerForm.password.$error">
+              <div ng-message="required">Please enter a password</div>
+              <div ng-message="minlength">Please enter 8 or more characters</div>
+              <div ng-message="pattern">Password does not meet requirements</div>
+            </div>
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}" ng-show="$ctrl.showConfirmPassword()">
+            <label>Confirm Password</label>
+            <input
+            name="confirmPassword"
+            type="password"
+            ng-model="$ctrl.confirmPassword"
+            ng-change="$ctrl.passwordsMatch()"
+            required
+            md-no-asterisk>
+            <div ng-messages="registerForm.confirmPassword.$error">
+              <div ng-message="required">Please confirm your password</div>
+              <div ng-message="mustmatch">Passwords must match</div>
+            </div>
+        </md-input-container>
+    </div>
+    <div ng-show="registerForm.password.$error.pattern"
+        class="md-caption"
+        layout="row"
+        layout-align="center-center"
+        layout-padding
+        layout-margin>
+        <i class="material-icons" style="vertical-align: middle">info</i>
+        {{$ctrl.passwordRequirements}}
+    </div>
+    <div layout="row" layout-align="center center">
+        <md-button ng-disabled="registerForm.$invalid" class="md-raised md-primary" type="submit">Register</md-button>
+    </div>
+</form>

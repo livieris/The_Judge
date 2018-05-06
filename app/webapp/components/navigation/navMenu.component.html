@@ -1,0 +1,17 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+      <a ui-sref="home"><h1>The Judge</h1></a>
+      <span flex></span>
+      <md-menu>
+          <!-- Trigger element is a md-button with an icon -->
+          <md-button ng-click="$mdMenu.open($event)" class="md-icon-button">
+              <i class="material-icons">menu</i>
+          </md-button>
+          <md-menu-content>
+              <md-menu-item>
+                  <md-button ng-click="$ctrl.logout()">Logout</md-button>
+              </md-menu-item>
+          </md-menu-content>
+      </md-menu>
+  </div>
+</md-toolbar>
