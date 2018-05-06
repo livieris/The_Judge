@@ -1,5 +1,5 @@
-# base_server
-a sample MEAN server stack using MySQL, PassportJS, and Sequelize
+# JUDGE
+a MEAN server stack using MySQL, PassportJS, and Sequelize
 
 ###To start
 npm install in project
