@@ -2,7 +2,7 @@
 a MEAN server stack using MySQL, PassportJS, and Sequelize
 
 ###To start
-npm install in project
+npm install in project folder
 
 ###set config
 set config file to match sql db
