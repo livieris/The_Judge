@@ -5,6 +5,13 @@
             <input name="Show Name" ng-model="$ctrl.carShow.show_name" required>
         </md-input-container>
         <md-input-container ng-style="{'background-color':'white'}">
+          <label>Date</label>
+          <md-datepicker name="date" ng-model="$ctrl.carShow.date" md-open-on-focus md-placeholder="Enter date"></md-datepicker>
+          <div ng-messages="showInfoForm.name.$error">
+            <div ng-message="valid">Not a date!</div>
+          </div> 
+        </md-input-container>
+        <md-input-container ng-style="{'background-color':'white'}">
             <label>City</label>
             <input name="City" ng-model="$ctrl.carShow.city" required>
         </md-input-container>

@@ -47,7 +47,8 @@ module.exports = function (app, car_show) {
           judge_user: req.body.judge_user,
           judge_pass: req.body.judge_pass,
           num_of_classes: req.body.num_of_classes,
-          userId: req.body.userId
+          userId: req.body.userId,
+          date: req.body.date
       };
      carShow.create(data).then(function(carShow) {
          return res.json(carShow)
@@ -63,7 +64,8 @@ module.exports = function (app, car_show) {
           jude_user: req.body.judge_user,
           judge_pass: req.body.judge_pass,
           num_of_classes: req.body.num_of_classes,
-          userId: req.body.userId
+          userId: req.body.userId,
+          date: req.body.date
       };
       carShow.upsert(data).then(function(carShow) {
           return res.json(carShow);
@@ -79,7 +81,8 @@ module.exports = function (app, car_show) {
           jude_user: req.body.judge_user,
           judge_pass: req.body.judge_pass,
           num_of_classes: req.body.num_of_classes,
-          userId: req.body.userId
+          userId: req.body.userId,
+          date: req.body.date
       };
       return carShow.destroy(data).then(function(){
           res.status(204).send({message:'Car show deleted.'});

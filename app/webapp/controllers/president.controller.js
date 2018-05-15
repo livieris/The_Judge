@@ -21,7 +21,7 @@
                 state: null,
                 judge_user: null,
                 num_of_classes: null,
-                userId: null
+                userId: null,
             },
             president: {
               showTabs: showTabs,
@@ -45,7 +45,7 @@
             UsersService.getUserPromise().then(function(user) {
                 $ctrl.user = user;
                 $ctrl.carShow.userId = user.id;
-                userId=user.id;  
+                userId=user.id;
             });
 
         }
@@ -64,9 +64,10 @@
           var numOfClasses = $ctrl.carShow.num_of_classes;
           var judgeUserName = $ctrl.carShow.judge_user;
           var judgePassword = $ctrl.judge_pass;
+          var date = $ctrl.carShow.date;
           judgeCriteriaList = $ctrl.criteriaList;
 
-          formValues = [showName, showCity, showState, numOfClasses, judgeUserName, judgePassword];
+          formValues = [showName, showCity, showState, numOfClasses, judgeUserName, judgePassword, date];
 
         }
         function canSaveNewShow(){

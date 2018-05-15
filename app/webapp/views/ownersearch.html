@@ -1,0 +1,35 @@
+<div ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="Go Back" ng-click="$ctrl.goJudgeResults()">
+        Back
+      </md-button>
+      <h2 flex md-truncate>Judge Results</h2>
+    </div>
+  </md-toolbar>
+  <md-content ng-style="{'background-image':'url(https://www.americancarcollector.com/wp-content/uploads/2017/05/1969-pontiac-gto-judge-side.jpg{{hash}})', 'background-position':'50% 35%', 'background-size':'cover', 'background-attachment':'fixed'}">
+    <form name="judgeCarInfoForm" style="height:87vh;">
+        <div layout="column" layout-align="space-around center">
+            <md-input-container ng-style="{'background-color':'white'}" >
+                <label>Owner Search</label>
+                <input name="name"
+                  ng-model="$ctrl.ownerInfo.full_name"
+                  ng-change="$ctrl.ownerSearch()"
+                  ng-model-options="{ debounce: 500 }">
+            </md-input-container>
+     </form>
+     <div flex-gt-sm="50" flex layout-align="space-around center">
+     <md-content>
+       <md-list flex>
+         <md-list-item class="md-3-line" ng-click="null" ng-repeat="name in $ctrl.owners">
+           <div class="md-list-item-text" layout="column">
+             <h3>Name: {{ name }}</h3>
+             <h4 ng-repeat="item in $ctrl.resultsSorted[name]">{{item.criteria}}: {{item.score}}</h4>
+             <h4>---------</h4>
+           </div>
+         </md-list-item>
+     </md-list>
+     </md-content>
+   </div>
+  </md-content>
+</div>

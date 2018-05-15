@@ -82,5 +82,16 @@
               }
           }
         });
+        $stateProvider.state('app.ownersearch', {
+            url: '/ownersearch/:id',
+            templateUrl: './app/views/ownersearch.html',
+            controller: 'ownersearchController as $ctrl',
+            data: {
+              roles: {
+                only: ['ADMIN'],
+                redirectTo: 'welcome'
+              }
+          }
+        });
     });
 })();

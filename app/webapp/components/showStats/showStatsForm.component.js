@@ -33,10 +33,17 @@
             toggleResult: toggleResult,
             showResult: showResult,
             goPresident: goPresident,
+            goSearch: goSearch,
             goTop: goTop,
             customFilter: customFilter,
             printResultInfo: printResultInfo,
-            printCustomResult: printCustomResult
+            printCustomResult: printCustomResult,
+            carShow: {
+              show_name: null,
+              date: null,
+              city: null,
+              state: null
+            }
         });
 
         function init() {
@@ -45,6 +52,11 @@
                 $ctrl.resultsSorted = lodash.groupBy($ctrl.results, 'class');
                 $ctrl.classes = lodash.keys($ctrl.resultsSorted);
                 console.log($ctrl);
+
+            });
+            CarShowService.getCarShowPromise($stateParams.id).then(function(results) {
+                $ctrl.carShow=results;
+                console.log(results.show_name);
 
             });
         }
@@ -83,6 +95,9 @@
         function goPresident(){
           $state.go('app.president');
         }
+        function goSearch(){
+          $state.go('app.ownersearch');
+        }
         //scroll to top of page
         function goTop(){
           $location.hash('top');
@@ -95,26 +110,28 @@
                 return 'No Car';
             } else {
                 var list = $ctrl.resultsSorted[showClass];
-                return '' +
-                    list[index].full_name + '|' +
-                    list[index].city + ',' +
-                    list[index].state + '|' +
-                    list[index].car_number + ': ' +
+                return 'Car: ' +
+                    list[index].car_number + '->' +
+                    list[index].full_name + '(' +
+                    list[index].city + ', ' +
+                    list[index].state + ')' +
                     list[index].year + ' ' +
                     list[index].make + ' ' +
-                    list[index].model;
+                    list[index].model + ' Score: '+
+                    list[index].car_score;
             }
         }
 
         function printCustomResult(result) {
-            return '' +
-            result.full_name + '|' +
-            result.city + ',' +
-            result.state + '|' +
-            result.car_number + ': ' +
+            return 'Car: ' +
+            result.car_number + '->' +
+            result.full_name + '(' +
+            result.city + ', ' +
+            result.state + ')' +
             result.year + ' ' +
             result.make + ' ' +
-            result.model;
+            result.model + ' Score: '+
+            result.car_score;
 
         }
 

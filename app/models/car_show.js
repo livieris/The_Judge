@@ -16,6 +16,9 @@ module.exports = function(sequelize, Sequelize) {
         },
         num_of_classes: {
             type: Sequelize.STRING,
+        },
+        date: {
+            type: Sequelize.STRING,
         }
     });
 

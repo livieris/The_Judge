@@ -2,7 +2,7 @@
     <div layout="column" layout-align="space-around center">
       <md-input-container ng-repeat="crit in $ctrl.carShow.car_criteria track by $index" ng-style="{'background-color':'white'}">
           <label>{{crit.criteria}}</label>
-          <input type="number" ng-model=crit.value ng-change="$ctrl.totalScore()" required>
+          <input type="number" ng-model=crit.score ng-change="$ctrl.totalScore()" required>
       </md-input-container>
         <md-input-container ng-style="{'background-color':'white'}">
             <label>Total Score</label>

@@ -76,7 +76,7 @@ module.exports = function(passport, user) {
         }).then(function(user) {
             if (!user) {
                 return done(null, false, {
-                    message: 'Email does not exist'
+                    message: 'Username does not exist'
                 });
             }
             if (!isValidPassword(user.password, password)) {

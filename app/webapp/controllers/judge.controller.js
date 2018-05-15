@@ -11,6 +11,7 @@
       UsersService,
       UserRoleService,
       JudgedCarInfoService,
+      IndividualScoreservice,
       $state
     ) {
         var $ctrl = angular.extend(this, {
@@ -59,12 +60,22 @@
         }
         //save new owner to db
         function save(){
-          console.log("IN save:  "+$ctrl.carInfo.carShowId);
+          console.log("IN save:  "+$ctrl.carShow.car_criteria);
           var ohNo = false;
           var capClass = $ctrl.carInfo.class;
           $ctrl.carInfo.class=capClass.toUpperCase();
           JudgedCarInfoService.saveJudgedCarInfoPromise($ctrl.carInfo).then(function(carInfo) {
               $ctrl.carInfo = carInfo;
+              $ctrl.carShow.car_criteria = lodash.forEach($ctrl.carShow.car_criteria, function(crit) {
+                  crit.carShowId = $ctrl.carShow.id;
+                  crit.full_name=$ctrl.carInfo.full_name;
+                  crit.score=crit.score;
+                  crit.id=null;
+                  console.log("IN LODASH: "+crit.carShowId+" "+crit.score+" "+crit.full_name+" "+crit.criteria);
+              })
+              IndividualScoreservice.saveIndividualScorePromise($ctrl.carShow.car_criteria).then(function(ind) {
+                $ctrl.carShow.car_criteria=ind.car_criteria;
+              })
               displayDialogBox('success');
               $state.go('app.judgesuccess');
           }, function(error) {
@@ -93,7 +104,7 @@
         function isCriteriaFilled(){
           var save = false;
           lodash.forEach($ctrl.carShow.car_criteria, function(crit) {
-            if(crit.value==null){
+            if(crit.score==null){
               save = true;
             }
           });
@@ -127,8 +138,8 @@
           console.log("TOTAL SCORE");
           var total=0;
           lodash.forEach($ctrl.carShow.car_criteria, function(crit) {
-            if(crit.value!=null){
-              total+=crit.value;
+            if(crit.score!=null){
+              total+=crit.score;
             }
           });
           $ctrl.carInfo.car_score = total;

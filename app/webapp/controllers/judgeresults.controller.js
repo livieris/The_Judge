@@ -6,7 +6,8 @@
       $mdDialog,
       $state,
       $stateParams,
-      JudgedCarInfoService
+      JudgedCarInfoService,
+      CarShowService
     ) {
         var $ctrl = angular.extend(this, {
             $onInit: init,
@@ -15,6 +16,7 @@
             newCriteriaList:[],
             goPresident: goPresident,
             goPrint: goPrint,
+            goSearch: goSearch,
             customPrint: false
         });
 
@@ -30,6 +32,10 @@
 
         function goPresident(){
           $state.go('app.president');
+        }
+
+        function goSearch(){
+          $state.go('app.ownersearch', {id:$stateParams.id});
         }
         //print out list
         function goPrint(){
