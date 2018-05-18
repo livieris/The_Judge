@@ -2,7 +2,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9
+ * v1.1.8
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -107,7 +107,7 @@ angular
  *       $mdPanel.open('demoPreset', {
  *         id: 'menu_' + menu.name,
  *         position: $mdPanel.newPanelPosition()
- *             .relativeTo($event.target)
+ *             .relativeTo($event.srcElement)
  *             .addPanelPosition(
  *               $mdPanel.xPosition.ALIGN_START,
  *               $mdPanel.yPosition.BELOW

@@ -48,6 +48,7 @@ var carCriteriaEndPoint = require('./app/routes/endpoints/car_criteria.js')(app,
 var judgedCarInfoEndpoint  = require('./app/routes/endpoints/judged_car_info.js')(app, models.judged_car_info);
 var userEndpoint = require('./app/routes/endpoints/users.js')(app, models.user);
 var userRoleEndpoint = require('./app/routes/endpoints/user_role.js')(app, models.user_role);
+var individualScoreEndpoint = require('./app/routes/endpoints/individual_score.js')(app, models.individual_score);
 
 //load passport strategies
 require('./app/config/passport/passport.js')(passport, models.user);

@@ -1,8 +1,8 @@
-# JUDGE
-a MEAN server stack using MySQL, PassportJS, and Sequelize
+# base_server
+a sample MEAN server stack using MySQL, PassportJS, and Sequelize
 
 ###To start
-npm install in project folder
+npm install in project
 
 ###set config
 set config file to match sql db

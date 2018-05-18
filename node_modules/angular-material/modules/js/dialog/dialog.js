@@ -2,7 +2,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9
+ * v1.1.8
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -547,7 +547,7 @@ function MdDialogDirective($$rAF, $mdTheming, $mdDialog) {
  *     `three` into the controller, with the value 3. If `bindToController` is true, they will be
  *     copied to the controller instead.
  *   - `bindToController` - `bool`: bind the locals to the controller, instead of passing them in.
- *   - `resolve` - `{function=}`: Similar to locals, except it takes as values functions that return promises, and the
+ *   - `resolve` - `{function=}`: Similar to locals, except it takes as values functions that return promises, and the	
  *      dialog will not open until all of the promises resolve.
  *   - `controllerAs` - `{string=}`: An alias to assign the controller to on the scope.
  *   - `parent` - `{element=}`: The element to append the dialog to. Defaults to appending
@@ -1158,7 +1158,7 @@ function MdDialogProvider($$interimElementProvider) {
       // get raw DOM node
       walkDOM(element[0]);
 
-      options.unlockScreenReader = function () {
+      options.unlockScreenReader = function() {
         isHidden = false;
         walkDOM(element[0]);
 
@@ -1166,38 +1166,27 @@ function MdDialogProvider($$interimElementProvider) {
       };
 
       /**
-       * Get all of an element's parent elements up the DOM tree
-       * @return {Array} The parent elements
+       * Walk DOM to apply or remove aria-hidden on sibling nodes
+       * and parent sibling nodes
+       *
        */
-      function getParents(element) {
-        var parents = [];
+      function walkDOM(element) {
         while (element.parentNode) {
           if (element === document.body) {
-            return parents;
+            return;
           }
           var children = element.parentNode.children;
           for (var i = 0; i < children.length; i++) {
             // skip over child if it is an ascendant of the dialog
-            // a script or style tag, or a live region.
+            // or a script or style tag
             if (element !== children[i] &&
-                !isNodeOneOf(children[i], ['SCRIPT', 'STYLE']) &&
-                !children[i].hasAttribute('aria-live')) {
-              parents.push(children[i]);
+             !isNodeOneOf(children[i], ['SCRIPT', 'STYLE']) &&
+             !children[i].hasAttribute('aria-live')) {
+              children[i].setAttribute('aria-hidden', isHidden);
             }
           }
-          element = element.parentNode;
-        }
-        return parents;
-      }
 
-      /**
-       * Walk DOM to apply or remove aria-hidden on sibling nodes
-       * and parent sibling nodes
-       */
-      function walkDOM(element) {
-        var elements = getParents(element);
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].setAttribute('aria-hidden', isHidden);
+          walkDOM(element = element.parentNode);
         }
       }
     }
