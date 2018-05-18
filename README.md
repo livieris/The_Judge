@@ -1,4 +1,4 @@
-# base_server
+# The Judge
 a sample MEAN server stack using MySQL, PassportJS, and Sequelize
 
 ###To start
