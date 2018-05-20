@@ -3,14 +3,14 @@
         "model": "role",
         "data": {
             "name": "ADMIN",
-            "permissions": [1,2]
+            "permissions": [2,12]
         }
     },
     {
         "model": "role",
         "data": {
             "name": "USER",
-            "permissions": [2]
+            "permissions": [12]
         }
     }
 
