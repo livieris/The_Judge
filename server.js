@@ -54,8 +54,8 @@ var individualScoreEndpoint = require('./app/routes/endpoints/individual_score.j
 require('./app/config/passport/passport.js')(passport, models.user);
 
 //Sync Database remove force when models done
-//models.sequelize.sync().then(function() {
-models.sequelize.sync({force: true}).then(function() {
+models.sequelize.sync().then(function() {
+//models.sequelize.sync({force: true}).then(function() {
     console.log('Nice! Database looks fine');
     //load fixtures into database
     sequelize_fixtures.loadFile('app/fixtures/*.json', models).then(function(){
