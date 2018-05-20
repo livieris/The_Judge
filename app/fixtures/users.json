@@ -9,7 +9,7 @@
             "lastname": "admin",
             "email": "super@admin.admin",
             "password": "$2a$08$ZGU3HkT11B5aClnIOzTbb.ieNx5jiuArKPoS0uj42lwbSTsA/6FEq",
-            "roles": [1],
+            "roles": [2],
             "username":"superadmin"
         }
     }
