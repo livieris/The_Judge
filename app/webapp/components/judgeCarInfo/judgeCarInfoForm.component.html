@@ -10,18 +10,40 @@ to the names applied to judge. so fullname, class, ect are bound-->
             </div>
         </md-input-container>
         <md-input-container ng-style="{'background-color':'white'}">
-            <label>City</label>
-            <input name="name" ng-model="$ctrl.carInfo.city" required>
-            <div ng-messages="judgeCarInfoForm.city.$error">
-              <div ng-message="required">City is required</div>
-            </div>
+          <md-autocomplete
+              name="State"
+              ng-disabled="$ctrl.isDisabled"
+              md-no-cache="$ctrl.noCache"
+              md-selected-item="$ctrl.selectedItemState"
+              md-search-text-change="$ctrl.searchTextChangeState($ctrl.searchTextState)"
+              md-search-text="$ctrl.searchTextState"
+              md-selected-item-change="$ctrl.selectedItemChangeState(itemState)"
+              md-items="itemState in $ctrl.querySearchState($ctrl.searchTextState)"
+              md-item-text="itemState.displayState"
+              md-min-length="0"
+              placeholder="State"
+              required>
+            <md-item-template>
+              <span md-highlight-text="$ctrl.searchTextState" md-highlight-flags="^i">{{itemState.displayState}}</span>
+            </md-item-template>
         </md-input-container>
         <md-input-container ng-style="{'background-color':'white'}">
-            <label>State</label>
-            <input name="name" ng-model="$ctrl.carInfo.state" required>
-            <div ng-messages="judgeCarInfoForm.state.$error">
-              <div ng-message="required">State is required</div>
-            </div>
+          <md-autocomplete
+              name="City"
+              ng-disabled="$ctrl.isDisabled"
+              md-no-cache="$ctrl.noCache"
+              md-selected-item="$ctrl.selectedItemCity"
+              md-search-text-change="$ctrl.searchTextChangeCity($ctrl.searchTextCity)"
+              md-search-text="$ctrl.searchTextCity"
+              md-selected-item-change="$ctrl.selectedItemChangeCity(itemCity)"
+              md-items="itemCity in $ctrl.querySearchCity($ctrl.searchTextCity)"
+              md-item-text="itemCity.displayCity"
+              md-min-length="0"
+              placeholder="City"
+              required>
+            <md-item-template>
+              <span md-highlight-text="$ctrl.searchTextCity" md-highlight-flags="^i">{{itemCity.displayCity}}</span>
+            </md-item-template>
         </md-input-container>
         <md-input-container ng-style="{'background-color':'white'}">
             <label>Class</label>

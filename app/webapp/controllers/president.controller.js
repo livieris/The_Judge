@@ -82,6 +82,7 @@
         }
         //add new show to db display message box upson success or failure
         function createNewShow() {
+          console.log($ctrl.carShow);
             var ohNo = false;
             CarShowService.saveCarShowPromise($ctrl.carShow).then(function(carShow) {
                 $ctrl.carShow = carShow;

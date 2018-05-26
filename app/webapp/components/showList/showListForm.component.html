@@ -35,8 +35,8 @@
         <md-list-item class="md-3-line" ng-click="$ctrl.smallScreenDialogBox($event,item)" ng-repeat="item in $ctrl.user.car_shows">
           <div class="md-list-item-text" layout="column">
             <h3>{{ item.show_name }}</h3>
-            <h4>{{ item.city }}, {{ item.state }}</h4>            
-            <p>{{ item.date }}</p>
+            <h4>{{ item.city }}, {{ item.state }}</h4>
+            <p>{{ item.date | date: "yyyy-MM-dd" }}</p>
           </div>
         </md-list-item>
       </md-list>
