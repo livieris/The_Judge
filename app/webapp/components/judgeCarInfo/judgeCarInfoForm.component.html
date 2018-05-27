@@ -15,12 +15,10 @@ to the names applied to judge. so fullname, class, ect are bound-->
               ng-disabled="$ctrl.isDisabled"
               md-no-cache="$ctrl.noCache"
               md-selected-item="$ctrl.selectedItemState"
-              md-search-text-change="$ctrl.searchTextChangeState($ctrl.searchTextState)"
               md-search-text="$ctrl.searchTextState"
-              md-selected-item-change="$ctrl.selectedItemChangeState(itemState)"
               md-items="itemState in $ctrl.querySearchState($ctrl.searchTextState)"
               md-item-text="itemState.displayState"
-              md-min-length="0"
+              md-input-minlength="1"
               placeholder="State"
               required>
             <md-item-template>
@@ -38,7 +36,7 @@ to the names applied to judge. so fullname, class, ect are bound-->
               md-selected-item-change="$ctrl.selectedItemChangeCity(itemCity)"
               md-items="itemCity in $ctrl.querySearchCity($ctrl.searchTextCity)"
               md-item-text="itemCity.displayCity"
-              md-min-length="0"
+              md-input-minlength="1"
               placeholder="City"
               required>
             <md-item-template>
@@ -80,7 +78,7 @@ to the names applied to judge. so fullname, class, ect are bound-->
                       md-selected-item-change="$ctrl.selectedItemChange(item)"
                       md-items="item in $ctrl.querySearch($ctrl.searchText)"
                       md-item-text="item.display"
-                      md-min-length="0"
+                      md-input-minlength="1"
                       placeholder="Car Make"
                       required>
                     <md-item-template>
