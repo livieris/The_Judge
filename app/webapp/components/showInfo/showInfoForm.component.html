@@ -22,7 +22,7 @@
               md-selected-item-change="$ctrl.selectedItemChange(item)"
               md-items="item in $ctrl.querySearch($ctrl.searchText)"
               md-item-text="item.display"
-              md-min-length="0"
+              md-input-minlength="1"
               placeholder="State"
               required>
             <md-item-template>
@@ -40,7 +40,7 @@
               md-selected-item-change="$ctrl.selectedItemChangeCity(itemCity)"
               md-items="itemCity in $ctrl.querySearchCity($ctrl.searchTextCity)"
               md-item-text="itemCity.displayCity"
-              md-min-length="0"
+              md-input-minlength="1"
               placeholder="City"
               required>
             <md-item-template>
